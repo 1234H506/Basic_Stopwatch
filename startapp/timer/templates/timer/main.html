@@ -1,0 +1,507 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timer Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'timer/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVEGAÇÃO
+    ========================== -->
+
+    <header class="topbar">
+
+        <nav class="nav-container" aria-label="Navegação principal">
+
+            <a
+                href="#contador"
+                class="nav-link active"
+                data-section="contador"
+            >
+                Contador
+            </a>
+
+            <a
+                href="#historico"
+                class="nav-link"
+                data-section="historico"
+            >
+                Histórico
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             SEÇÃO: CONTADOR
+        ========================== -->
+
+        <section
+            id="contador"
+            class="section timer-section"
+        >
+
+            <div class="timer-content">
+
+                <div class="timer-card">
+
+                    <!-- Decorações -->
+
+                    <div
+                        class="timer-decoration decoration-left"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div
+                        class="timer-decoration decoration-right"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <!-- Status -->
+
+                    <div class="timer-status">
+
+                        <span
+                            class="status-dot"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span>
+                            Em andamento
+                        </span>
+
+                    </div>
+
+
+                    <!-- =========================
+                         CONTADOR
+                    ========================== -->
+
+                    <div
+                        class="timer-display"
+                        aria-label="Tempo restante"
+                    >
+
+                        <!-- HORAS -->
+
+                        <div class="time-unit">
+
+                            <span class="time-label">
+                                Horas
+                            </span>
+
+                            <div class="time-circle">
+
+                                <span class="timer-number">
+                                    00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SEPARADOR -->
+
+                        <span
+                            class="time-separator"
+                            aria-hidden="true"
+                        >
+                            :
+                        </span>
+
+
+                        <!-- MINUTOS -->
+
+                        <div class="time-unit">
+
+                            <span class="time-label">
+                                Minutos
+                            </span>
+
+                            <div class="time-circle">
+
+                                <span class="timer-number">
+                                    25
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SEPARADOR -->
+
+                        <span
+                            class="time-separator"
+                            aria-hidden="true"
+                        >
+                            :
+                        </span>
+
+
+                        <!-- SEGUNDOS -->
+
+                        <div class="time-unit">
+
+                            <span class="time-label">
+                                Segundos
+                            </span>
+
+                            <div class="time-circle">
+
+                                <span class="timer-number">
+                                    00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         BARRA DE PROGRESSO
+                    ========================== -->
+
+                    <div
+                        class="progress-container"
+                        aria-label="Progresso do cronômetro"
+                    >
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"></div>
+
+                            <div class="progress-percentage">
+                                100%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         BOTÕES
+                    ========================== -->
+
+                    <div class="timer-actions">
+
+                        <!-- PAUSAR -->
+
+                        <button
+                            type="button"
+                            class="action-button action-pause"
+                            id="pauseButton"
+                        >
+
+                            <span
+                                class="button-icon pause-icon"
+                                aria-hidden="true"
+                            >
+
+                                <span></span>
+                                <span></span>
+
+                            </span>
+
+                            <span>
+                                Pausar
+                            </span>
+
+                        </button>
+
+
+                        <!-- ADICIONAR TEMPO -->
+
+                        <button
+                            type="button"
+                            class="action-button action-add"
+                            id="addTimeButton"
+                        >
+
+                            <span
+                                class="button-icon plus-icon"
+                                aria-hidden="true"
+                            >
+                                +
+                            </span>
+
+                            <span>
+                                Adicionar tempo
+                            </span>
+
+                        </button>
+
+
+                        <!-- ENCERRAR -->
+
+                        <button
+                            type="button"
+                            class="action-button action-end"
+                            id="endButton"
+                        >
+
+                            <span
+                                class="button-icon close-icon"
+                                aria-hidden="true"
+                            >
+                                ×
+                            </span>
+
+                            <span>
+                                Encerrar
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEÇÃO: HISTÓRICO
+        ========================== -->
+
+        <section
+            id="historico"
+            class="section history-section"
+        >
+
+            <div class="history-container">
+
+
+                <!-- Cabeçalho -->
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            REGISTROS
+                        </span>
+
+                        <h1>
+                            Histórico
+                        </h1>
+
+                        <p>
+                            Acompanhe suas sessões anteriores.
+                        </p>
+
+                    </div>
+
+
+                    <div class="history-counter">
+
+                        <span class="counter-number">
+                            04
+                        </span>
+
+                        <span class="counter-label">
+                            sessões
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     TABELA
+                ========================== -->
+
+                <div class="history-card">
+
+                    <div class="table-wrapper">
+
+                        <table class="history-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Início
+                                    </th>
+
+                                    <th>
+                                        Tempo total
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <!-- REGISTRO 1 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <span class="table-primary">
+                                            14:30
+                                        </span>
+
+                                        <span class="table-secondary">
+                                            Hoje
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        25 min
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status completed">
+                                            Concluído
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- REGISTRO 2 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <span class="table-primary">
+                                            11:15
+                                        </span>
+
+                                        <span class="table-secondary">
+                                            Hoje
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        40 min
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status completed">
+                                            Concluído
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- REGISTRO 3 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <span class="table-primary">
+                                            16:45
+                                        </span>
+
+                                        <span class="table-secondary">
+                                            Ontem
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        18 min
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status interrupted">
+                                            Interrompido
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- REGISTRO 4 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <span class="table-primary">
+                                            09:20
+                                        </span>
+
+                                        <span class="table-secondary">
+                                            Ontem
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+                                        30 min
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status completed">
+                                            Concluído
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
