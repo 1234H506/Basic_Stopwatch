@@ -2,9 +2,6 @@
 .env
 .env.*
 
-# img
-*.png
-
 # Python
 __pycache__/
 *.py[cod]
